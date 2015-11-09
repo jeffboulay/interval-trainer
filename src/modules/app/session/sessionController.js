@@ -1,6 +1,6 @@
 'use strict';
 
 module.exports = /*@ngInject*/
-  function baseController($scope) {
+  function sessionController($scope) {
     $scope.welcome = 'interval';
   };

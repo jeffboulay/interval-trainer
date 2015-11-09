@@ -1,6 +1,110 @@
 .interval{
+  background-color: black;
+  position: relative;
+
+  h1{
+    margin: 0;
+    background-color: #222;
+    font-weight:500;
+    font-size: 25px;
+    padding:10px 0;
+    color: #dddddd;
+  }
+
   .timer{
     text-align: center;
-    font-size: 40px;
+    font-size: 200px;
+    color: white;
   }
+
+  .pause{
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    .icon-pause{
+      margin: 15px auto;
+      height: 20px;
+      width:14px;
+      border-left: 4px solid white;
+      border-right: 4px solid white;
+    }
+  }
+}
+.session-list{
+  padding: 40px 0;
+
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li{
+    margin: 20px auto 0;
+    position: relative;
+    max-width: 600px;
+    height: 70px;
+  }
+  .time, .activity {
+    width: 45%;
+    position: absolute;
+    height: 50px;
+    transform: translateY(15px);
+  }
+  .time{
+    color: #666;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: right;
+    font-size:  16px;
+    line-height: 12px;
+    padding-right: 20px;
+    left: 0;
+  }
+
+  .icon-clock{
+    background-color: orangered;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left:-25px;
+    &:before{
+      content: ' ';
+      display: block;
+      width: 1px;
+      height: 30px;
+      position: absolute;
+      top:-35px;
+      left:50%;
+      background-color: #ccc;
+    }
+  }
+
+  .activity{
+    vertical-align: middle;
+    display: block;
+    font-weight: 700;
+    padding-left: 20px;
+    right: 0;
+    text-align: left;
+  }
+
+  small{
+    font-size: 11px;
+    color: #333;
+  }
+}
+
+.back{
+  position: absolute;
+  top:15px;
+  left: 10px;
+  z-index: 2;
 }

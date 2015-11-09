@@ -1,14 +1,13 @@
 @import "variables";
 @import "imports";
 @import "session";
-
-*{
-  color:blue;
-}
 body {
   text-align: center;
   color: #222;
   font-family:Helvetica;
+}
+*{
+  box-sizing: border-box;
 }
 
 .welcome {
