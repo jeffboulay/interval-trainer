@@ -3,6 +3,11 @@
   "engines": {
     "node": ">=0.10.0"
   },
+  "browserify": {
+    "transform": [
+      "html2js-browserify"
+    ]
+  },
   "scripts": {
     "postinstall": "npm install browserify@4.2.3 gulp-header"
   },
@@ -29,7 +34,8 @@
     "run-sequence": "^0.3.6",
     "vinyl-source-stream": "^0.1.1",
     "watchify": "^0.10.2",
-    "yargs": "^1.2.2"
+    "yargs": "^1.2.2",
+    "html2js-browserify": "0.0.2"
   },
   "browser": {
     "angular": "./bower_components/angular/angular.min.js",
