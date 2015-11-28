@@ -8,30 +8,39 @@ module.exports = /*@ngInject*/
     var session = sessionFactory.getSession;
     var rest = false;
 
-    $scope.session = session;
-    $scope.currentInterval = $scope.session[currentInterval];
+    $scope.sessionList = angular.copy(session);
+    $scope.currentInterval = session[currentInterval];
+    //$scope.sessionList.shift();
 
     function nextInterval(){
       //console.log("interval",currentInterval+1,session.length);
-      if(currentInterval+1 >= session.length){
-        //console.log("done");
+      if(currentInterval >= session.length){
+        console.log("done");
+        $scope.currentInterval  = {
+          activity:"",
+          timer:"Done"
+        };
       } else{
         if(rest) {
+          var restTime =getTime(session[currentInterval].rest);
           setInterval(session[currentInterval].rest);
           $scope.currentInterval  = {
             activity:"rest",
-            timer:session[currentInterval].rest
+            timer:restTime.timeString
           };
           currentInterval++;
           rest = false;
 
         } else {
+          var timerTime =getTime(session[currentInterval].timer);
           rest = true;
           setInterval(session[currentInterval].timer);
           $scope.currentInterval  = {
             activity:session[currentInterval].activity,
-            timer:session[currentInterval].timer
+            timer:timerTime.timeString
           };
+          $scope.sessionList.shift();
+          console.log(session);
         }
       }
     }
@@ -48,6 +57,7 @@ module.exports = /*@ngInject*/
       myTime.minutes = Math.floor(totalTime/minute);
       totalTime = totalTime - (myTime.minutes*minute);
       myTime.seconds = Math.floor(totalTime/second);
+      myTime.timeString = myTime.hours + ":" + myTime.minutes + ":" + myTime.seconds
       return myTime;
     }
 
@@ -56,9 +66,9 @@ module.exports = /*@ngInject*/
 
       function countDown(){
         var countTime = 1000;
+        $scope.currentInterval.timer = currentTime.hours + ":" + currentTime.minutes + ":" + currentTime.seconds;
         if(currentTime.seconds > 0){
           currentTime.seconds--;
-          console.log(currentTime.hours + ":" + currentTime.minutes + ":" + currentTime.seconds);
         } else if(currentTime.minutes > 0){
           currentTime.minutes--;
           currentTime.seconds = 59;
@@ -71,7 +81,7 @@ module.exports = /*@ngInject*/
         $timeout(function(){
           return countDown();
         },countTime);
-        $scope.currentInterval.timer = currentTime.hours + ":" + currentTime.minutes + ":" + currentTime.seconds;
+
       }
     return countDown();
     }
