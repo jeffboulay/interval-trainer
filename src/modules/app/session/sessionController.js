@@ -9,21 +9,29 @@ module.exports = /*@ngInject*/
     var rest = false;
 
     $scope.session = session;
-    $scope.interval = $scope.session[currentInterval];
+    $scope.currentInterval = $scope.session[currentInterval];
 
     function nextInterval(){
-      console.log("interval",currentInterval+1,session.length);
+      //console.log("interval",currentInterval+1,session.length);
       if(currentInterval+1 >= session.length){
-        console.log("done");
+        //console.log("done");
       } else{
         if(rest) {
           setInterval(session[currentInterval].rest);
+          $scope.currentInterval  = {
+            activity:"rest",
+            timer:session[currentInterval].rest
+          };
           currentInterval++;
           rest = false;
 
         } else {
           rest = true;
           setInterval(session[currentInterval].timer);
+          $scope.currentInterval  = {
+            activity:session[currentInterval].activity,
+            timer:session[currentInterval].timer
+          };
         }
       }
     }
@@ -45,7 +53,7 @@ module.exports = /*@ngInject*/
 
     function setInterval(time){
       currentTime = getTime(time);
-      console.log(currentTime.hours + ":" + currentTime.minutes + ":" + currentTime.seconds);
+      //console.log(currentTime.hours + ":" + currentTime.minutes + ":" + currentTime.seconds);
       function countDown(){
         var countTime = 1000;
         if(currentTime.seconds > 0){
@@ -62,6 +70,7 @@ module.exports = /*@ngInject*/
         $timeout(function(){
           countDown();
         },countTime);
+        $scope.currentInterval.timer = currentTime.hours + ":" + currentTime.minutes + ":" + currentTime.seconds;
       }
     countDown();
     }
