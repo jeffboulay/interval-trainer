@@ -53,11 +53,12 @@ module.exports = /*@ngInject*/
 
     function setInterval(time){
       currentTime = getTime(time);
-      //console.log(currentTime.hours + ":" + currentTime.minutes + ":" + currentTime.seconds);
+
       function countDown(){
         var countTime = 1000;
         if(currentTime.seconds > 0){
           currentTime.seconds--;
+          console.log(currentTime.hours + ":" + currentTime.minutes + ":" + currentTime.seconds);
         } else if(currentTime.minutes > 0){
           currentTime.minutes--;
           currentTime.seconds = 59;
@@ -65,14 +66,14 @@ module.exports = /*@ngInject*/
           currentTime.hours--;
           currentTime.minutes = 0;
         } else {
-          nextInterval();
+          return nextInterval();
         }
         $timeout(function(){
-          countDown();
+          return countDown();
         },countTime);
         $scope.currentInterval.timer = currentTime.hours + ":" + currentTime.minutes + ":" + currentTime.seconds;
       }
-    countDown();
+    return countDown();
     }
     nextInterval();
     $scope.welcome = 'interval';

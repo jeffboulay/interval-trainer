@@ -9,7 +9,6 @@ module.exports = /*@ngInject*/
       restrict: 'EA',
       template: require('./interval.html'),
       link:function (scope){
-        console.log(scope);
         // Do something awesome
       }
     };
