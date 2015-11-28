@@ -1,26 +1,12 @@
 <a href="" class="back">Back to Sessions</a>
-  <timer class="timer" ></timer>
+  <interval class="timer" ></interval>
 <section class="session-list">
   <ul>
-    <li>
+    <li ng-repeat="interval in session">
       <a href="">
-        <span class="time">2:00<br><small>interval</small></span>
+        <span class="time">{{interval.timer}}<br><small>interval</small></span>
         <i class="icon-clock"></i>
-        <span class="activity">Push-ups</span>
-      </a>
-    </li>
-    <li>
-      <a href="">
-        <span class="time">2:00<br><small>interval</small></span>
-        <i class="icon-clock"></i>
-        <span class="activity">Dead Lifts</span>
-      </a>
-    </li>
-    <li>
-      <a href="">
-        <span class="time">2:00<br><small>interval</small></span>
-        <i class="icon-clock"></i>
-        <span class="activity">Box Jumps</span>
+        <span class="activity">{{interval.activity}}</span>
       </a>
     </li>
   </ul>

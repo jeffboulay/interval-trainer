@@ -1,11 +1,12 @@
 'use strict';
 
 module.exports = /*@ngInject*/
-  function timer(/* inject dependencies here, i.e. : $rootScope */) {
+  function interval(/* inject dependencies here, i.e. : $rootScope */) {
     return {
       restrict: 'EA',
-      template: require('./timer.html'),
+      template: require('./interval.html'),
       link:function (scope){
+
         scope.interval = {
           activity:'Jumping Jacks',
           time:'2:30'

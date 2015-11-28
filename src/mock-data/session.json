@@ -1,7 +1,17 @@
 [
   {
-    "activity":"push-up",
-    "timer":"2:30",
-    "rest":"30"
+    "activity":"push-ups",
+    "timer":10000,
+    "rest":30000
+  },
+  {
+    "activity":"sit-ups",
+    "timer":20000,
+    "rest":30000
+  },
+  {
+    "activity":"bicep curls",
+    "timer":12000,
+    "rest":30000
   }
 ]

@@ -15,4 +15,6 @@ module.exports =
         });
     })
     .controller('sessionController', require('./sessionController'))
-    .directive('timer', require('./timer-directive'));
+    .directive('interval', require('./interval-directive'))
+    .factory('sessionFactory',require('./session-factory'))
+    .factory('intervalFactory',require('./interval-factory'));
