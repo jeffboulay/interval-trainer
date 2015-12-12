@@ -57,7 +57,7 @@ module.exports = /*@ngInject*/
       myTime.minutes = Math.floor(totalTime/minute);
       totalTime = totalTime - (myTime.minutes*minute);
       myTime.seconds = Math.floor(totalTime/second);
-      myTime.timeString = myTime.hours + ":" + myTime.minutes + ":" + myTime.seconds
+      myTime.timeString = myTime.hours + ":" + myTime.minutes + ":" + myTime.seconds;
       return myTime;
     }
 

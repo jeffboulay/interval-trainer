@@ -5376,6 +5376,46 @@ button.close {
   left: 10px;
   z-index: 2; }
 
+.sessions-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .sessions-list ul li {
+    clear: both;
+    margin: 20px auto 0;
+    position: relative;
+    max-width: 300px; }
+.sessions-list .duration {
+  width: 100px;
+  height: 100px;
+  background-color: #000;
+  color: #fff;
+  float: left;
+  font-size: 30px;
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 5px; }
+  .sessions-list .duration h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0; }
+    .sessions-list .duration h2 span {
+      display: block;
+      font-size: 15px; }
+.sessions-list .wrapper {
+  float: left;
+  text-align: left;
+  position: relative;
+  min-height: 100px;
+  margin-left: 20px; }
+  .sessions-list .wrapper .inner-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
 body {
   text-align: center;
   color: #222;
