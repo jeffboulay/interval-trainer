@@ -2,30 +2,12 @@
 <a href="" class="add-session">Add a session</a>
 <section class="sessions-list">
   <ul>
-    <li>
+    <li ng-repeat="session in sessions">
       <a href="">
-        <div class="duration"><h2>30 <span>min</span></h2></div>
+        <div class="duration"><h2>{{session.totalTime}} <span>min</span></h2></div>
         <div class="wrapper">
-          <h3>Back & Biceps</h3>
-          <div class="interval-count">13 Intervals</div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="">
-        <div class="duration"><h2>30 <span>min</span></h2></div>
-        <div class="wrapper">
-          <h3>Back & Biceps</h3>
-          <div class="interval-count">13 Intervals</div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="">
-        <div class="duration"><h2>30 <span>min</span></h2></div>
-        <div class="wrapper">
-          <h3>Back & Biceps</h3>
-          <div class="interval-count">13 Intervals</div>
+          <h3>{{session.name}}</h3>
+          <div class="interval-count">{{session.intervalCount}} Intervals</div>
         </div>
       </a>
     </li>
