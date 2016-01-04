@@ -1,5 +1,7 @@
 {
-  "private": "true",
+  "name": "interval-trainer",
+  "version": "1.0.0",
+  "private": true,
   "engines": {
     "node": ">=0.10.0"
   },
@@ -9,7 +11,8 @@
     ]
   },
   "scripts": {
-    "postinstall": "npm install browserify@4.2.3 gulp-header"
+    "postinstall": "npm install browserify@4.2.3 gulp-header",
+    "start": "node ./bin/www"
   },
   "devDependencies": {
     "browserify-shim": "^3.6.0",
@@ -42,5 +45,15 @@
     "angular-ui-bootstrap": "./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
     "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.min.js"
   },
-  "browserify-shim": {}
+  "browserify-shim": {},
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.0",
+    "debug": "^2.2.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "mongoose": "^4.3.4",
+    "morgan": "^1.6.1",
+    "serve-favicon": "^2.3.0"
+  }
 }
