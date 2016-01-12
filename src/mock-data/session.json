@@ -1,17 +1,22 @@
-[
-  {
-    "activity":"push-ups",
-    "timer":10000,
-    "rest":8000
-  },
-  {
-    "activity":"sit-ups",
-    "timer":20000,
-    "rest":8000
-  },
-  {
-    "activity":"bicep curls",
-    "timer":12000,
-    "rest":8000
-  }
-]
+{
+  "name": "Back & Biceps",
+  "intervalCount": 13,
+  "totalTime": 30,
+  "activities": [
+    {
+      "activity": "push-ups",
+      "timer": 10000,
+      "rest": 8000
+    },
+    {
+      "activity": "sit-ups",
+      "timer": 20000,
+      "rest": 8000
+    },
+    {
+      "activity": "bicep curls",
+      "timer": 12000,
+      "rest": 8000
+    }
+  ]
+}
