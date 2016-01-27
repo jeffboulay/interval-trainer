@@ -2,12 +2,8 @@ var express = require('express');
 var mongoose = require('mongoose');
 
 require('../models/Sessions');
-require('../models/Activities');
 
 var Session = mongoose.model('Session');
-var Activity = mongoose.model('Activity');
-
-
 var router = express.Router();
 
 //return all sessions
@@ -18,6 +14,48 @@ router.get('/sessions', function(req, res, next) {
     res.json(sessions);
   });
 });
+
+//create a session
+router.post('/session', function(req, res, next) {
+  //var session = new Session(req.body);
+  var mySession = {
+    "name": "Back & Biceps",
+    "intervalCount": 13,
+    "totalTime": 30,
+    "activities": [
+      {
+        "name": "push-ups",
+        "order":1,
+        "timer": 10000,
+        "rest": 8000
+      },
+      {
+        "name": "sit-ups",
+        "order":2,
+        "timer": 20000,
+        "rest": 8000
+      },
+      {
+        "name": "bicep curls",
+        "order":3,
+        "timer": 12000,
+        "rest": 8000
+      }
+    ]
+  };
+
+  var session = new Session(mySession);
+  session.save(function(err, session){
+    if(err){
+      return next(err);
+    }
+
+    res.json(session);
+  });
+});
+
+
+/*
 
 //return a session
 router.param('session', function(req, res, next, id) {
@@ -70,9 +108,10 @@ router.get('/sessions/:session', function(req, res, next) {
   });
 });
 
-/* GET home page. */
+/!* GET home page. *!/
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+*/
 
 module.exports = router;
