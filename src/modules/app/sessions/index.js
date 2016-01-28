@@ -8,7 +8,7 @@ module.exports =
   .config(function ($stateProvider) {
     $stateProvider
     .state('sessions', {
-      url: '',
+      url: '/',
       templateUrl: 'app/sessions/sessions.html',
       controller: 'sessionsController'
     })

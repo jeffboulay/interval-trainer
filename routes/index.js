@@ -18,33 +18,8 @@ router.get('/sessions', function(req, res, next) {
 //create a session
 router.post('/session', function(req, res, next) {
   //var session = new Session(req.body);
-  var mySession = {
-    "name": "Back & Biceps",
-    "intervalCount": 13,
-    "totalTime": 30,
-    "activities": [
-      {
-        "name": "push-ups",
-        "order":1,
-        "timer": 10000,
-        "rest": 8000
-      },
-      {
-        "name": "sit-ups",
-        "order":2,
-        "timer": 20000,
-        "rest": 8000
-      },
-      {
-        "name": "bicep curls",
-        "order":3,
-        "timer": 12000,
-        "rest": 8000
-      }
-    ]
-  };
-
-  var session = new Session(mySession);
+ console.log(req);
+  var session = new Session(req.body);
   session.save(function(err, session){
     if(err){
       return next(err);
@@ -109,9 +84,10 @@ router.get('/sessions/:session', function(req, res, next) {
 });
 
 /!* GET home page. *!/
+*/
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-*/
+
 
 module.exports = router;

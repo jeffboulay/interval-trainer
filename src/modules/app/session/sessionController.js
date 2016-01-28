@@ -8,13 +8,13 @@ module.exports = /*@ngInject*/
     var session = sessionFactory.getSession;
     var rest = false;
 
-    $scope.sessionList = angular.copy(session);
-    $scope.currentInterval = session[currentInterval];
+    $scope.sessionList = angular.copy(session.activities);
+    $scope.currentInterval = session.activities[currentInterval];
     //$scope.sessionList.shift();
-
+    console.log($scope.sessionList);
     function nextInterval(){
       //console.log("interval",currentInterval+1,session.length);
-      if(currentInterval >= session.length){
+      if(currentInterval >= session.activities.length){
         console.log("done");
         $scope.currentInterval  = {
           activity:"",
@@ -22,8 +22,8 @@ module.exports = /*@ngInject*/
         };
       } else{
         if(rest) {
-          var restTime =getTime(session[currentInterval].rest);
-          setInterval(session[currentInterval].rest);
+          var restTime =getTime(session.activities[currentInterval].rest);
+          setInterval(session.activities[currentInterval].rest);
           $scope.currentInterval  = {
             activity:"rest",
             timer:restTime.timeString
@@ -32,15 +32,15 @@ module.exports = /*@ngInject*/
           rest = false;
 
         } else {
-          var timerTime =getTime(session[currentInterval].timer);
+          var timerTime =getTime(session.activities[currentInterval].timer);
           rest = true;
-          setInterval(session[currentInterval].timer);
+          setInterval(session.activities[currentInterval].timer);
           $scope.currentInterval  = {
-            activity:session[currentInterval].activity,
+            activity:session.activities[currentInterval].activity,
             timer:timerTime.timeString
           };
           $scope.sessionList.shift();
-          console.log(session);
+          console.log(session.activities);
         }
       }
     }
