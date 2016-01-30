@@ -9,7 +9,7 @@ var ActivitySchema = new mongoose.Schema({
 
 var SessionSchema = new mongoose.Schema({
   name: String,
-  intervalCount: {type: Number, default: 0},
+  activityCount: {type: Number, default: 0},
   totalTime: {type: Number, default: 0},
   activities: [ActivitySchema]
 });

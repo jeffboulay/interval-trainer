@@ -2,40 +2,26 @@
 
 module.exports = /*@ngInject*/
   function addSessionsController($scope, sessionsFactory) {
-    $scope.intervals=[];
-    $scope.newInterval={};
-    function clearInterval(){
-      $scope.newInterval=[];
+    $scope.session ={
+      "name": "",
+      "activityCount": 0,
+      "totalTime": 0,
+      "activities": []
+    };
+    $scope.newActivity={};
+    function clearActivity(){
+      $scope.newActivity=[];
     }
 
-    $scope.addInterval = function() {
-      $scope.intervals.push($scope.newInterval);
-      clearInterval();
+    $scope.addActivity = function() {
+
+      $scope.session.activityCount++;
+      $scope.session.totalTime = $scope.session.totalTime + $scope.newActivity.timer + $scope.newActivity.rest;
+      $scope.session.activities.push($scope.newActivity);
+      console.log($scope.session);
+      clearActivity();
     };
     $scope.createSession = function () {
-      sessionsFactory.createSession(
-        {
-          "name": "Strength force upper",
-          "intervalCount": 13,
-          "totalTime": 30,
-          "activities": [
-            {
-              "name": "arms",
-              "timer": 10000,
-              "rest": 8000
-            },
-            {
-              "name": "legs",
-              "timer": 20000,
-              "rest": 8000
-            },
-            {
-              "name": "chest",
-              "timer": 12000,
-              "rest": 8000
-            }
-          ]
-        }
-      );
+      sessionsFactory.createSession($scope.session);
     };
   };

@@ -1,24 +1,24 @@
 
 
-<form action="">
+<form novalidate>
   <h1>Create a Session</h1>
   <button class="create-session" ng-click="createSession()">Create Session</button>
-  <input type="text" id="session-name" placeholder="Enter Session Name">
+  <input type="text" id="session-name" ng-model="session.name" placeholder="Enter Session Name" required>
   <fieldset>
     <legend>Add an Interval</legend>
-    <input type="text" id="activity" placeholder="Activity" ng-model="newInterval.activity" required>
-    <input type="text" id="timer" placeholder="Timer"  ng-model="newInterval.timer" required>
-    <input type="text" id="rest" placeholder="Rest"  ng-model="newInterval.rest">
+    <input type="text" id="activity" placeholder="Activity" ng-model="newActivity.name" required>
+    <input type="number" id="timer" placeholder="Timer"  ng-model="newActivity.timer" required>
+    <input type="number" id="rest" placeholder="Rest"  ng-model="newActivity.rest">
   </fieldset>
-  <button id="submit" ng-click="addInterval()">Add Interval</button>
+  <button id="submit" ng-click="addActivity()">Add Interval</button>
 </form>
 <section class="session-list">
   <ul>
-    <li ng-repeat="interval in intervals">
+    <li ng-repeat="activity in session.activities">
       <a href="">
-        <span class="time">{{interval.timer}}<br><small>interval</small></span>
+        <span class="time">{{activity.timer}}<br><small>interval</small></span>
         <i class="icon-clock"></i>
-        <span class="activity">{{interval.activity}}</span>
+        <span class="activity">{{activity.name}}</span>
       </a>
     </li>
   </ul>
