@@ -2,6 +2,6 @@
 
 module.exports = /*@ngInject*/
   function sessionsController($scope, sessionsFactory) {
-    $scope.sessions = sessionsFactory.getSessions;
+    $scope.sessions = sessionsFactory.getSessions();
     console.log('sessions');
   };
