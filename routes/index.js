@@ -29,6 +29,18 @@ router.post('/session', function(req, res, next) {
   });
 });
 
+//delete a session
+router.delete('/sessions/:id', function(req, res, next) {
+  Session.remove({
+    _id: req.params.id
+  }, function(err) {
+    if (err){
+      return next(err);
+    }
+
+    res.json({ message: 'Successfully deleted', session: req.params.id });
+  });
+});
 
 /*
 
@@ -85,7 +97,7 @@ router.get('/sessions/:session', function(req, res, next) {
 
 /!* GET home page. *!/
 */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 

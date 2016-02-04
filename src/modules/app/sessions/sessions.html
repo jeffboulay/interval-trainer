@@ -3,13 +3,15 @@
 <section class="sessions-list">
   <ul>
     <li ng-repeat="session in sessions">
-      <a href="">
+      <a ui-sref="session({id:session._id})">
         <div class="duration"><h2>{{session.totalTime}} <span>min</span></h2></div>
         <div class="wrapper">
           <h3>{{session.name}}</h3>
           <div class="interval-count">{{session.intervalCount}} Intervals</div>
+
         </div>
       </a>
+      <button class="delete" ng-click="deleteSession($index)">Delete</button>
     </li>
   </ul>
 </section>

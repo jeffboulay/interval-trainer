@@ -9,7 +9,7 @@ module.exports =
     .config(function ($stateProvider) {
       $stateProvider
         .state('session', {
-          url: '/session',
+          url: '/session/:id',
           templateUrl: 'app/session/layout.html',
           controller: 'sessionController'
         });
