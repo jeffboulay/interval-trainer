@@ -15,6 +15,15 @@ router.get('/sessions', function(req, res, next) {
   });
 });
 
+//return a session
+router.get('/sessions/:id', function(req, res, next) {
+  Session.findById(req.params.id, function(err, session) {
+    if (err){ return res.send(err);}
+    res.json(session);
+  });
+});
+
+
 //create a session
 router.post('/session', function(req, res, next) {
   //var session = new Session(req.body);

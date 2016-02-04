@@ -1,18 +1,20 @@
 'use strict';
 
 module.exports = /*@ngInject*/
-  function sessionController($scope,$timeout,sessionFactory) {
-
+  function sessionController($scope,$timeout,$stateParams,sessionFactory) {
+    console.log('stateParam', $stateParams.id);
     var currentInterval = 0;
     var currentTime;
-    var session = sessionFactory.getSession;
-    var rest = false;
+    var session;
 
-    $scope.sessionList = angular.copy(session.activities);
-    $scope.currentInterval = session.activities[currentInterval];
-    //$scope.sessionList.shift();
-    console.log($scope.sessionList);
-    function nextInterval(){
+    sessionFactory.getSession($stateParams.id).then(function(res){
+      session = res.data;
+      $scope.sessionList = angular.copy(session.activities);
+      $scope.currentInterval = session.activities[currentInterval];
+      nextInterval();
+    });
+    var rest = false;
+   function nextInterval(){
       //console.log("interval",currentInterval+1,session.length);
       if(currentInterval >= session.activities.length){
         console.log("done");
@@ -85,6 +87,6 @@ module.exports = /*@ngInject*/
       }
     return countDown();
     }
-    nextInterval();
+
     $scope.welcome = 'interval';
   };
