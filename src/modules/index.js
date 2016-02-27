@@ -4,5 +4,8 @@
   require('angular');
   require('angular-ui-bootstrap');
   require('angular-ui-router');
-//app entry point
-require('./app');
+  require('angular-resource');
+  require('jquery');
+  require('toastr');
+  //app entry point
+  require('./app');

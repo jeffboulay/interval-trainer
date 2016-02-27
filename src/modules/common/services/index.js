@@ -2,4 +2,4 @@
 
 module.exports =
   angular.module('interval trainer.common.services', []);
-  //.factory('fooService', require('./fooService'));
+  //.factory('notifierFactory', require('./notifierFactory'));
