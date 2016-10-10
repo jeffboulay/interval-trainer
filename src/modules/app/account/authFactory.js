@@ -5,7 +5,7 @@ module.exports = /*@ngInject*/
     return {
       authenticateUser: function(username, password) {
         var dfd = $q.defer();
-        $http.post('/login', {username:username, password:password}).then(function(response) {
+        $http.post('http://localhost:3000/login', {username:username, password:password}).then(function(response) {
           if(response.data.success) {
             var user = new userFactory();
             angular.extend(user, response.data.user);
@@ -19,7 +19,7 @@ module.exports = /*@ngInject*/
       },
       logoutUser: function() {
         var dfd = $q.defer();
-        $http.post('/logout', {logout:true}).then(function() {
+        $http.post('http://localhost:3000/logout', {logout:true}).then(function() {
           identityFactory.currentUser = undefined;
           dfd.resolve();
         });

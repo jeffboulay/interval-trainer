@@ -20,7 +20,6 @@ module.exports = function (app, config) {
     resave: true,
     saveUninitialized: true
   }));
-  //app.use(session({secret: 'interval trainer unicorns'}));
   app.use(passport.initialize());
   app.use(passport.session());
   //app.use(express.static(config.rootPath, '/public'));

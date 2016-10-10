@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 
-require('../models/Sessions');
+require('./Sessions');
 
 var Session = mongoose.model('Session');
 var router = express.Router();

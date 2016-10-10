@@ -3,7 +3,7 @@ var auth = require('./auth'),
   express = require('express'),
   User = mongoose.model('User');
 
-require('../../models/Sessions');
+require('./Sessions');
 
 var Session = mongoose.model('Session');
 var app = express.Router();

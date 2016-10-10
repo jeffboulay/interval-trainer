@@ -1,1 +1,12 @@
-<h1>Login </h1>
+<form ng-hide="identity.isAuthenticated()" class="navbar-form">
+  <input type="text" placeholder="Email" ng-model="username">
+  <input type="password" placeholder="Password" ng-model="password">
+  <button class="btm btn-primary" ng-click="signin(username, password)">Sign In</button>
+</form>
+<ul class="nav"ng-show="identity.isAuthenticated()">
+  <li><a href="" data-toggle="dropdown">{{identity.currentUser.firstName + " " + identity.currentUser.lastName}}</a></li>
+  <li ng-show="identity.currentUser.isAdmin()">
+    <a href="/admin/users">User Admin</a>
+  </li>
+  <li><a href="" ng-click="signout()">Sign Out</a></li>
+</ul>
